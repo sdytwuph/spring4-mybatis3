@@ -31,7 +31,7 @@
      @Transactional( rollbackFor={Exception.class}) 事务管理
      @ResponseBody
      @Scope("prototype")   设定bean的作用域 -->
-    <context:component-scan base-package="me.gacl.controller" />
+    <context:component-scan base-package="com.message.controller" />
 
     <!--<mvc:resources mapping="/images/**" location="/images/" cache-period="31556926"/>-->
     <!--<mvc:resources mapping="/js/**" location="/js/" cache-period="31556926"/>-->
@@ -48,12 +48,12 @@
     <!-- <bean id="byteArray_hmc" class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />处理..
     <bean id="string_hmc" class="org.springframework.http.converter.StringHttpMessageConverter" />处理..  -->
     <bean name="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
-        <!-- 只会拦截@RequestMapping的URL
+        <!-- 只会拦截@RequestMapping的URL -->
         <property name="interceptors">
              <list>
-                 <bean class="com.mvc.MyInteceptor"></bean>
+                 <bean class="com.message.interceptor.LoginInterceptor"></bean>
              </list>
-         </property> -->
+         </property>
     </bean>
     <!-- FreeMarker视图解析 如返回userinfo。。在这里配置后缀名ftl和视图解析器。。 -->
     <!--<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">-->
@@ -120,7 +120,7 @@
     org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler处理并返回.
     DefaultServletHttpRequestHandler使用就是各个Servlet容器自己的默认Servlet.
     <mvc:default-servlet-handler/> -->
-
+    <mvc:default-servlet-handler/>
     <!-- 对静态资源文件的访问  方案二 （二选一）/images/**映射到ResourceHttpRequestHandler进行处理，
     location指定静态资源的位置.可以是web application根目录下、jar包里面，这样可以把静态资源压缩到jar包中。
     cache-period 可以使得静态资源进行web cache

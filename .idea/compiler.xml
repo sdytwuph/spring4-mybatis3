@@ -24,15 +24,8 @@
         <processorPath useClasspath="true" />
         <module name="spring4-mybatis3" />
       </profile>
-      <profile default="false" name="Annotation profile for HD_GZG_PORTLSP_1.0" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="HD_GZG_PORTLSP_1.0" target="1.7" />
       <module name="spring4-mybatis3" target="1.6" />
     </bytecodeTargetLevel>
   </component>
